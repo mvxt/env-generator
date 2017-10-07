@@ -48,13 +48,6 @@ git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
 git submodule init
 cd .emacs.d/plugins/helm && make
 
-# #############################
-# ## Create Dotfile Symlinks ##
-# #############################
-# # TODO: symlink all config and rc files in ~/ and ~/.config to dotfiles
-# # .config/redshift.conf
-# # .config/terminator/config
-
 # ##################################
 # ## Miscellaneous Administrative ##
 # ##################################
