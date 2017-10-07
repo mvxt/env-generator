@@ -1,0 +1,7 @@
+brew 'git'
+brew 'emacs'
+brew 'java'
+brew 'go'
+brew 'rust'
+brew 'kotlin'
+brew 'zsh'
