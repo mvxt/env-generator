@@ -23,7 +23,37 @@ PACKAGES=(
     wine-stable # Cleanly integrate windows apps into Linux
 )
 
-install_brew() {
-    /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+FUNCTIONS=(
+    install_tmate
+    install_ohmyzsh
+    install_fzf
+)
 
+# Install tmate, a remote SSH pairing / terminal sharing client built on top of tmux
+# https://tmate.io/
+install_tmate() {
+    sudo apt-get install software-properties-common
+    sudo add-apt-repository ppa:tmate.io/archive
+    sudo apt-get update
+    sudo apt-get install tmate-nightly -y
+}
+
+# Install oh-my-zsh
+# https://github.com/robbyrussell/oh-my-zsh
+install_ohmyzsh() {
+    sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
+}
+
+# Install Fuzzy file finder
+# https://github.com/junegunn/fzf
+install_fzf() {
+    git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
+    ~/.fzf/install
+}
+
+# Install emacs plugins
+# https://github.com/emacs-helm/helm
+install_emacs_plugins() {
+    git submodule init
+    cd .emacs.d/plugins/helm && make
 }

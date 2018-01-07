@@ -1,0 +1,28 @@
+#!/bin/bash
+##############################################
+# Specifies packages to be installed for a Darwin
+#  distribution.
+##############################################
+
+PACKAGES=(
+    git # Git version control
+    tmux # Terminal multiplexor
+    zsh # Zsh
+    curl # Curl utility
+    wget # Wget utility
+    emacs-nox # Emacs without X windows
+    gnome-tweak-tool # For tweaking stuff
+    unity-tweak-tool # For tweaking stuff
+    google-chrome-stable # Google Chrome
+    ubuntu-restricted-extras # Media codecs
+    redshift # Like f.lux
+    htop # See core processing
+    vagrant # Install vagrant for VM & testing
+    xclip # Linux equivalent of pbcopy/pbpaste
+    bleachbit # Linux equivalent of CCleaner
+    wine-stable # Cleanly integrate windows apps into Linux
+)
+
+install_brew() {
+    /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+}
