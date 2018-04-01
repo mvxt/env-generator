@@ -10,9 +10,6 @@
     alias se='SUDO_EDITOR="emacsclient" sudo -e'
     alias e='emacsclient -t'
     alias ek="emacsclient -e '(kill-emacs)'"
-    alias generate='rake generate'
-    alias preview='rake preview'
-    alias deploy='rake deploy'
     alias restart='sudo shutdown -r now'
     alias shutdown='sudo shutdown -h now'
     alias android='studio.sh'
@@ -21,16 +18,23 @@
     alias py='python3'
     alias f='e `fzf -i`'
     alias diff='diff -byW $(( $(tput cols) - 2 ))'
+
+# Docker, Vagrant, other VM aliases
     alias vssh='vagrant ssh'
     alias vscp='vagrant scp'
+    alias dcup='docker-compose up'
+    alias dcd='docker-compose down'
+    alias drmi='docker rmi'
+    alias di='docker images'
+    alias dps='docker ps -a'
+    alias dr='docker rm'
 
-# aliases for github
+# Aliases for git
     alias add='git add'
     alias commit='git commit -m'
     alias push='git push'
     alias status='git status'
     alias branch='git branch'
-    alias newbranch='git checkout -b'
     alias log='git log --graph'
     alias stash='git stash'
     alias pop='git stash pop'

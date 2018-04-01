@@ -12,7 +12,6 @@
 DIST=$(uname)
 if [[ "$DIST" == "Darwin" ]]; then
     source Darwinfile
-    # TODO: install xcode
 elif [[ "$DIST" == "Linux" ]]; then
     source Linuxfile
     # TODO: Differentiate between debian and ubuntu, apt-get vs yum

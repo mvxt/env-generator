@@ -1,28 +1,37 @@
 #!/bin/bash
 ##############################################
-# Specifies packages to be installed for a Darwin
-#  distribution.
+# Script for installing items on a Darwin
+#  (Mac OS) machine
 ##############################################
+#############
+# GLOBALS
+#############
 
-PACKAGES=(
-    git # Git version control
-    tmux # Terminal multiplexor
-    zsh # Zsh
-    curl # Curl utility
-    wget # Wget utility
-    emacs-nox # Emacs without X windows
-    gnome-tweak-tool # For tweaking stuff
-    unity-tweak-tool # For tweaking stuff
-    google-chrome-stable # Google Chrome
-    ubuntu-restricted-extras # Media codecs
-    redshift # Like f.lux
-    htop # See core processing
-    vagrant # Install vagrant for VM & testing
-    xclip # Linux equivalent of pbcopy/pbpaste
-    bleachbit # Linux equivalent of CCleaner
-    wine-stable # Cleanly integrate windows apps into Linux
-)
+#############
+# FUNCTIONS
+#############
+# Installs Command Line Tools programmatically
+# See https://apple.stackexchange.com/questions/107307/how-can-i-install-the-command-line-tools-completely-from-the-command-line
+install_clt () {
+  touch /tmp/.com.apple.dt.CommandLineTools.installondemand.in-progress;
+  PROD=$(softwareupdate -l |
+      grep "\*.*Command Line" |
+      head -n 1 | awk -F"*" '{print $2}' |
+      sed -e 's/^ *//' |
+      tr -d '\n')
+  softwareupdate -i "$PROD" --verbose;
+}
 
-install_brew() {
+# Installs Homebrew
+install_brew () {
     /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 }
+
+############
+# MAIN
+############
+install_clt
+install_brew
+
+# Uses homebrew / cask to install all needed libraries in Mac
+brew bundle

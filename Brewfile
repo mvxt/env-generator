@@ -1,7 +1,19 @@
-brew 'git'
-brew 'emacs'
-brew 'java'
-brew 'go'
-brew 'rust'
-brew 'kotlin'
-brew 'zsh'
+brew "git"
+brew "emacs"
+brew "go"
+brew "rust"
+brew "kotlin"
+brew "zsh"
+brew "wget"
+
+cask_args appdir: "/Applications"
+tap "caskroom/versions"
+cask "firefoxdeveloperedition"
+cask "java" unless system "/usr/libexec/java_home --failfast"
+cask "visual-studio-code"
+cask "firefox"
+cask "iterm2"
+cask "docker"
+cask "flux"
+cask "virtualbox"
+cask "vagrant"
