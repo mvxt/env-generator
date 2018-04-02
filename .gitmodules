@@ -7,3 +7,6 @@
 [submodule ".emacs.d/plugins/yasnippet"]
 	path = .emacs.d/plugins/yasnippet
 	url = https://github.com/joaotavora/yasnippet
+[submodule ".emacs.d/plugins/helm-ls-git"]
+	path = .emacs.d/plugins/helm-ls-git
+	url = https://github.com/emacs-helm/helm-ls-git
