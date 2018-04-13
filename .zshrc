@@ -1,5 +1,3 @@
-# If you come from bash you might have to change your $PATH.
-# export PATH=$HOME/bin:/usr/local/bin:$PATH
 # Set basic gopath
 export GOPATH=$HOME/workspace/go
 
@@ -56,14 +54,11 @@ COMPLETION_WAITING_DOTS="true"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git tmux)
+plugins=(git docker vagrant yarn)
 
 source $ZSH/oh-my-zsh.sh
 
 # User configuration
-
-# Aliases
-source ~/dotfiles/aliases.sh
 
 # export MANPATH="/usr/local/man:$MANPATH"
 

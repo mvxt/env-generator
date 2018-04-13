@@ -23,9 +23,9 @@ elif [[ "$DIST" == "Linux" ]]; then
         $f
     done
 else
-    echo 'note: distribution ${DIST} not currently supported'
+    echo 'INFO: distribution ${DIST} not currently supported'
     exit 0
 fi
 
-
-# TODO: Symlink config files in env-generator w/ home directory
+# Creates symlinks to dotfiles and other files in home directory
+source ./create_links.sh

@@ -1,3 +1,6 @@
 # No need to transfer histories between computers
 .bash_history
 auto-save-list
+
+# Ignore backup directory created when symlink script is run
+backup/

@@ -5,17 +5,18 @@
 ;;;;;;;; Use MELPA
 (require 'package)
 (add-to-list 'package-archives
-             '("melpa" . "https://melpa.org/packages/") t)
+	     '("melpa" . "https://melpa.org/packages/") t)
 (when (< emacs-major-version 24)
   ;; For important compatibility libraries like cl-lib
   (add-to-list 'package-archives '("gnu" . "https://elpa.gnu.org/packages/")))
 (package-initialize)
 
-;;;;;;;; Add user plugins folder
+;;;;;;;; Add user plugins folders
 (add-to-list 'load-path "~/.emacs.d/plugins/")
 (add-to-list 'load-path "~/.emacs.d/plugins/async")
 (add-to-list 'load-path "~/.emacs.d/plugins/helm")
 (add-to-list 'load-path "~/.emacs.d/plugins/yasnippet")
+(add-to-list 'load-path "~/.emacs.d/plugins/helm-ls-git")
 
 ;;;;;;;; Enable mouse support
 (unless window-system
@@ -140,7 +141,9 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(custom-enabled-themes (quote (tango-dark)))
- '(package-selected-packages (quote (go-mode kotlin-mode rust-mode markdown-mode)))
+ '(package-selected-packages
+   (quote
+    (cargo docker docker-compose-mode dockerfile-mode go-mode kotlin-mode rust-mode markdown-mode)))
  '(safe-local-variable-values (quote ((yas-indent-line quote auto))))
  '(tab-stop-list (number-sequence 4 200 4)))
 
