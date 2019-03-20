@@ -13,18 +13,24 @@
 # Installs Command Line Tools programmatically
 # See https://apple.stackexchange.com/questions/107307/how-can-i-install-the-command-line-tools-completely-from-the-command-line
 install_clt () {
-  touch /tmp/.com.apple.dt.CommandLineTools.installondemand.in-progress;
-  PROD=$(softwareupdate -l |
+  if ! xcode-select -p 1>/dev/null; then
+    echo "  Command Line Tools not installed - installing now"
+    touch /tmp/.com.apple.dt.CommandLineTools.installondemand.in-progress
+    PROD=$(softwareupdate -l |
       grep "\*.*Command Line" |
       head -n 1 | awk -F"*" '{print $2}' |
       sed -e 's/^ *//' |
       tr -d '\n')
-  softwareupdate -i "$PROD" --verbose;
+    softwareupdate -i "$PROD" --verbose
+  fi
 }
 
 # Installs Homebrew
 install_brew () {
+  if ! which brew 1>/dev/null; then
+    echo "  Brew not installed - installing now"
     /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+  fi
 }
 
 ############
@@ -35,3 +41,4 @@ install_brew
 
 # Uses homebrew / cask to install all needed libraries in Mac
 brew bundle
+

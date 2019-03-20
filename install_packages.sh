@@ -27,5 +27,8 @@ else
     exit 0
 fi
 
+# Install oh-my-zsh
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
+
 # Creates symlinks to dotfiles and other files in home directory
 source ./create_links.sh
