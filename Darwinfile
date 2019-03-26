@@ -33,11 +33,24 @@ install_brew () {
   fi
 }
 
+# Prints out a message after installations are done denoting what was *not* installed
+print_message() {
+  applist=(
+    'Wunderlist'
+  )
+
+  echo "  These apps are not installable through Brew. Install them manually:\n"
+
+  for i in "${applist[@]}"; do
+    echo "    - $i"
+  done
+}
 ############
 # MAIN
 ############
 install_clt
 install_brew
+print_message
 
 # Uses homebrew / cask to install all needed libraries in Mac
 brew bundle
