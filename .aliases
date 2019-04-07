@@ -16,7 +16,7 @@
     alias rep='watch -n1'
     alias r='rmtrash'
     alias py='python3'
-    alias f='e `fzf -i`'
+    alias f='v `fzf -i`'
     alias diff='diff -byW $(( $(tput cols) - 2 ))'
     alias v='nvim'
     alias rc='source ~/.zshrc'
