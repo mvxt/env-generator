@@ -35,4 +35,5 @@ cask "dropbox"
 cask "rescuetime"
 cask "wunderlist"
 cask "trello"
+cask "postman"
 
