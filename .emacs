@@ -143,7 +143,7 @@
  '(custom-enabled-themes (quote (tango-dark)))
  '(package-selected-packages
    (quote
-    (cargo docker docker-compose-mode dockerfile-mode go-mode kotlin-mode rust-mode markdown-mode)))
+    (projectile cider cargo docker docker-compose-mode dockerfile-mode go-mode kotlin-mode rust-mode markdown-mode)))
  '(safe-local-variable-values (quote ((yas-indent-line quote auto))))
  '(tab-stop-list (number-sequence 4 200 4)))
 

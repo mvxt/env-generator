@@ -4,3 +4,6 @@ auto-save-list
 
 # Ignore backup directory created when symlink script is run
 backup/
+
+# Emacs directory
+.emacs.d
