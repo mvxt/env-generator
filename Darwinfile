@@ -42,26 +42,23 @@ install_nvim_init() {
     https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 }
 
-# Prints out a message after installations are done denoting what was *not* installed
-print_message() {
+# Installs items manually through the app store using mas (Mac App Store CLI tool - https://github.com/mas-cli/mas)
+install_app_store() {
   applist=(
-    'Wunderlist'
+    585829637 # Todoist
   )
 
-  echo "  These apps are not installable through Brew. Install them manually:\n"
-
   for i in "${applist[@]}"; do
-    echo "    - $i"
+    mas install $i
   done
 }
+
 ############
 # MAIN
 ############
 install_clt
 install_brew
 install_nvim_init
-print_message
-
-# Uses homebrew / cask to install all needed libraries in Mac
-brew bundle
+brew bundle # Uses homebrew/cask to install stuff in Brewfile
+install_app_store
 

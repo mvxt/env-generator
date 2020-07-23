@@ -23,6 +23,7 @@ Plug 'encody/nvim'
 Plug 'posva/vim-vue'
 Plug 'vim-scripts/Relaxed-Green'
 Plug 'hukl/Smyck-Color-Scheme'
+Plug 'mhartington/oceanic-next'
 
 " NERD Tree - tree explorer
 " https://github.com/scrooloose/nerdtree
@@ -33,20 +34,6 @@ Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
 " nerdtree-git-plugin - show git status in NERD Tree
 " https://github.com/Xuyuanp/nerdtree-git-plugin
 Plug 'Xuyuanp/nerdtree-git-plugin'
-
-" robotframework syntax
-" https://github.com/mfukar/robotframework-vim
-Plug 'mfukar/robotframework-vim'
-
-" vim-airline
-" Enhanced statusline
-" https://github.com/vim-airline/vim-airline
-Plug 'vim-airline/vim-airline'
-" https://github.com/vim-airline/vim-airline-themes
-Plug 'vim-airline/vim-airline-themes'
-
-" vim yang-mode
-Plug 'nathanalderson/yang.vim'
 
 " Go mode
 Plug 'fatih/vim-go'
@@ -90,21 +77,15 @@ Plug 'majutsushi/tagbar'
 Plug 'godlygeek/tabular'
 Plug 'plasticboy/vim-markdown'
 
+" Support for JSX / ReactJS
+Plug 'maxmellon/vim-jsx-pretty'
+Plug 'pangloss/vim-javascript'
+
 " Vim multiple cursors
 Plug 'terryma/vim-multiple-cursors'
 
-" Fuzzy file, buffer, mru, tag, etc finder
-" ctrlp.vim
-" https://github.com/ctrlpvim/ctrlp.vim
-Plug 'ctrlpvim/ctrlp.vim'
-
-" OMG - insanely awesome fuzzy search and blazing fast grep
-" https://github.com/junegunn/fzf (parent project)
-" https://github.com/junegunn/fzf.vim (more extensive wrapper)
-" https://medium.com/@crashybang/supercharge-vim-with-fzf-and-ripgrep-d4661fc853d2#.rkhrm332m
-" To update: :PlugUpdate fzf
-Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
-Plug 'junegunn/fzf.vim'
+" Vim Stylus Syntax Highlighting
+Plug 'wavded/vim-stylus'
 
 " indentline
 " https://github.com/Yggdroot/indentLine
@@ -145,6 +126,9 @@ set ruler
 
 " Disable vim folding for json, markdown, etc.
 set nofoldenable
+let g:vim_markdown_folding_disabled = 1
+let g:vim_markdown_conceal = 0
+let g:vim_markdown_conceal_code_blocks = 0
 
 "disable showmode since using vim-airline; otherwise use 'set showmode'
 set noshowmode
@@ -160,12 +144,11 @@ filetype on
 filetype plugin on
 filetype indent on
 
+" Use goimports
+let g:go_fmt_command = "goimports"
+
 " syntax highlighting
 syntax on
-
-" markdown
-" https://github.com/plasticboy/vim-markdown
-let g:vim_markdown_folding_disabled=1
 
 " open new split panes to right and below (as you probably expect)
 set splitright
@@ -175,7 +158,7 @@ set splitbelow
 let g:ackprg = 'ag --nogroup --nocolor --column'
 
 set bg=dark
-colorscheme smyck
+colorscheme OceanicNext
 set termguicolors
 
 " Backspace behaves like other programs
@@ -187,6 +170,9 @@ set backspace=indent,eol,start
 " http://stackoverflow.com/questions/3776117/what-is-the-difference-between-the-remap-noremap-nnoremap-and-vnoremap-mapping#answer-3776182
 " http://stackoverflow.com/questions/22849386/difference-between-nnoremap-and-inoremap#answer-22849425
 " =====================================
+
+" EJS syntax highlighting
+au BufNewFile,BufRead *.ejs set filetype=html
 
 " change the leader key from "\" to ";" ("," is also popular)
 let mapleader=";"
