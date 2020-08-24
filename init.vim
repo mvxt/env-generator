@@ -10,50 +10,61 @@
 " =====================================
 call plug#begin()
 " -------------------------------------
-"
-" Theme Colors
-Plug 'vim-scripts/Relaxed-Green'
-Plug 'Yggdroot/duoduo'
-Plug 'vim-scripts/dante.vim'
-Plug 'gkjgh/cobalt'
-Plug 'broduo/broduo-color-scheme'
-Plug 'davb5/wombat256dave'
-Plug 'crater2150/vim-theme-chroma'
-Plug 'encody/nvim'
-Plug 'posva/vim-vue'
-Plug 'vim-scripts/Relaxed-Green'
+" ==============
+"  THEME COLORS
+" ==============
+" https://github.com/rafi/awesome-vim-colorschemes
+Plug 'joshdick/onedark.vim'
 Plug 'hukl/Smyck-Color-Scheme'
 Plug 'mhartington/oceanic-next'
 
+" ===========================================
+"  SYNTAX HIGHLIGHTING FOR LANGUAGES & TOOLS
+" ===========================================
+
+" Dart syntax
+" https://github.com/dart-lang/dart-vim-plugin
+Plug 'dart-lang/dart-vim-plugin'
+
+" Dockerfile syntax
+" https://github.com/ekalinin/Dockerfile.vim
+Plug 'ekalinin/Dockerfile.vim'
+
+" Go syntax
+" https://github.com/fatih/vim-go
+Plug 'fatih/vim-go'
+
+" JavaScript/ReactJS/JSX syntax
+Plug 'maxmellon/vim-jsx-pretty'
+Plug 'pangloss/vim-javascript'
+
+" Markdown syntax
+" https://github.com/plasticboy/vim-markdown
+Plug 'plasticboy/vim-markdown'
+
+" Terraform syntax
+" https://github.com/hashivim/vim-terraform
+Plug 'hashivim/vim-terraform'
+
+" Vim Stylus Syntax Highlighting
+" https://github.com/wavded/vim-stylus
+Plug 'wavded/vim-stylus'
+
+" ===============================
+"  MISCELLANEOUS TOOLS & PLUGINS
+" ===============================
+" Enforce editor settings
+" https://github.com/editorconfig/editorconfig-vim
+Plug 'editorconfig/editorconfig-vim'
+
 " NERD Tree - tree explorer
 " https://github.com/scrooloose/nerdtree
-" http://usevim.com/2012/07/18/nerdtree/
 " (loaded on first invocation of the command)
 Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
 
 " nerdtree-git-plugin - show git status in NERD Tree
 " https://github.com/Xuyuanp/nerdtree-git-plugin
 Plug 'Xuyuanp/nerdtree-git-plugin'
-
-" Go mode
-Plug 'fatih/vim-go'
-
-" Save/restore session support
-" https://github.com/tpope/vim-obsession
-" tmux users also see: https://github.com/tmux-plugins/tmux-resurrect/blob/master/docs/restoring_vim_and_neovim_sessions.md
-Plug 'tpope/vim-obsession'
-
-" Dockerfile syntax
-" https://github.com/ekalinin/Dockerfile.vim
-Plug 'ekalinin/Dockerfile.vim'
-
-" Excellent git wrapper
-" https://github.com/tpope/vim-fugitive
-Plug 'tpope/vim-fugitive'
-
-" Enforce editor settings
-" https://github.com/editorconfig/editorconfig-vim
-Plug 'editorconfig/editorconfig-vim'
 
 " vim-misc
 " https://github.com/xolox/vim-misc
@@ -64,28 +75,12 @@ Plug 'MarcWeber/vim-addon-mw-utils'
 Plug 'tomtom/tlib_vim'
 Plug 'garbas/vim-snipmate'
 
-" Terraform mode
-" https://github.com/hashivim/vim-terraform
-Plug 'hashivim/vim-terraform'
-
 " Tagbar
 " https://github.com/majutsushi/tagbar
 Plug 'majutsushi/tagbar'
 
-" Markdown support
-" https://github.com/plasticboy/vim-markdown
-Plug 'godlygeek/tabular'
-Plug 'plasticboy/vim-markdown'
-
-" Support for JSX / ReactJS
-Plug 'maxmellon/vim-jsx-pretty'
-Plug 'pangloss/vim-javascript'
-
 " Vim multiple cursors
 Plug 'terryma/vim-multiple-cursors'
-
-" Vim Stylus Syntax Highlighting
-Plug 'wavded/vim-stylus'
 
 " indentline
 " https://github.com/Yggdroot/indentLine
@@ -95,7 +90,14 @@ Plug 'Yggdroot/indentLine'
 " Add plugins to &runtimepath
 call plug#end()
 " =====================================
-"
+
+" ===============================
+"  PLUGIN-SPECIFIC CONFIGURATION
+" ===============================
+
+"""" ===========
+""""  NERD Tree
+"""" ===========
 " Auto start NERD tree when opening a directory
 autocmd VimEnter * if argc() == 1 && isdirectory(argv()[0]) && !exists("s:std_in") | exe 'NERDTree' argv()[0] | wincmd p | ene | wincmd p | endif
 
@@ -106,23 +108,12 @@ let NERDTreeShowHidden=1
 autocmd StdinReadPre * let s:std_in=1
 autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | exe 'NERDTree' | endif
 
-" Let quit work as expected if after entering :q the only window left open is NERD Tree itself
+" :q works as expected if the only window open is NERD Tree
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 
-" =====================================
-" Initial settings
-" =====================================
-"
-" highlight matches when searching
-" Use C-l to clear (see key map section)
-set hlsearch
-
-" Line numbering
-" Toggle set to ';n' in key map section
-set number
-
-" enable line and column display
-set ruler
+" ========================
+"  MISCELLANEOUS SETTINGS
+" ========================
 
 " Disable vim folding for json, markdown, etc.
 set nofoldenable
@@ -130,11 +121,18 @@ let g:vim_markdown_folding_disabled = 1
 let g:vim_markdown_conceal = 0
 let g:vim_markdown_conceal_code_blocks = 0
 
-"disable showmode since using vim-airline; otherwise use 'set showmode'
-set noshowmode
+" Highlight matches when searching
+" Use C-l to clear (see key map section)
+set hlsearch
+
+" Line numbering
+set number
+
+" enable line and column display
+set ruler
 
 " Disable cursor changes from terminal
-set guicursor=n-v-c:block-Cursor/lCursor-blinkon0,i-ci:ver25-Cursor/lCursor,r-cr:hor20-Cursor/lCursor
+"set guicursor=n-v-c:block-Cursor/lCursor-blinkon0,i-ci:ver25-Cursor/lCursor,r-cr:hor20-Cursor/lCursor
 
 " Set tabs to 2 spaces, replace all tabs with spaces
 set tabstop=2 shiftwidth=2 expandtab
@@ -147,19 +145,16 @@ filetype indent on
 " Use goimports
 let g:go_fmt_command = "goimports"
 
-" syntax highlighting
-syntax on
-
 " open new split panes to right and below (as you probably expect)
 set splitright
 set splitbelow
 
-" Use Ag (the silver searcher) instack of Ack
-let g:ackprg = 'ag --nogroup --nocolor --column'
-
-set bg=dark
-colorscheme OceanicNext
-set termguicolors
+" syntax highlighting
+if (has("termguicolors"))
+  set termguicolors
+endif
+syntax enable
+colorscheme onedark
 
 " Backspace behaves like other programs
 set backspace=indent,eol,start
@@ -234,18 +229,3 @@ nnoremap <A-p> :bprevious<CR>:redraw<CR>:ls<CR>
 " "http://stackoverflow.com/questions/657447/vim-clear-last-search-highlighting#answer-25569434
 nnoremap <silent> <C-L> :nohlsearch<CR><C-L>
 
-" ctrlp.vim
-let g:ctrlp_map = '<c-p>'
-let g:ctrlp_cmd = 'CtrlP'
-let g:ctrlp_custom_ignore = 'node_modules\|DS_Store\|git\|class\|cisco-ios\|netsim\|ncs-cdb\|state\|logs\|packages/juniper-junos\|dist'
-"let g:ctrlp_user_command = 'find %s -type f | grep -v "`cat .ctrlpignore`"'
-let g:ctrlp_working_path_mode = 'ra'
-let g:ctrlp_autoignore_extension = 0
-let g:ctrlp_match_window = 'top,order:ttb,min:1,max:30,results:30'
-let g:ctrlp_cache_dir = $HOME . '/.cache/ctrlp'
-if executable('ag')
-        let g:ctrlp_user_command = 'ag -l -g "" %s'
-endif
-nmap <c-t> :CtrlPBufTag<cr>
-nmap <c-r> :CtrlPMRUFiles<cr>
-nmap <c-c> :CtrlPClearAllCaches<cr>
