@@ -32,7 +32,7 @@
     alias dv='docker volume'
     alias drm='docker rm'
     alias drma='docker rm $(docker ps -aq)'
-    alias dis='docker images'
+    alias dims='docker images'
     alias dip='docker image prune'
     alias dvp='docker volume prune'
     alias drmi='docker rmi'
