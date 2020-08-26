@@ -32,12 +32,17 @@
     alias dv='docker volume'
     alias drm='docker rm'
     alias drma='docker rm $(docker ps -aq)'
-    alias dims='docker images'
+    alias dils='docker images'
     alias dip='docker image prune'
     alias dvp='docker volume prune'
     alias drmi='docker rmi'
     alias drmia='docker rmi $(docker images -q)'
     alias dps='docker ps -a'
+    alias dbd='docker build'
+
+    dssh() {
+      docker exec -it $1 bash
+    }
 
 # Aliases for git
     alias add='git add'
