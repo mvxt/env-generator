@@ -42,6 +42,10 @@ Plug 'pangloss/vim-javascript'
 " https://github.com/plasticboy/vim-markdown
 Plug 'plasticboy/vim-markdown'
 
+" Markdown preview
+" htps://github.com/iamcco/markdown-preview.nvim
+Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install'  }
+
 " Terraform syntax
 " https://github.com/hashivim/vim-terraform
 Plug 'hashivim/vim-terraform'
