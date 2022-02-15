@@ -1,0 +1,6 @@
+; core variables
+[core]
+  editor = nvim
+  
+[color]
+  ui = true

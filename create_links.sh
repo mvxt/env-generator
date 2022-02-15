@@ -7,16 +7,14 @@
 ##############################################
 
 DOTFILES=(
-    ".bash_logout"
-    ".emacs"
-    ".emacs.d"
-    ".profile"
-    ".tmux.conf"
+  ".profile"
+  ".tmux.conf"
+  ".gitconfig"
 )
 
 PROFILES=(
-    ".bashrc"
-    ".zshrc"
+  ".bashrc"
+  ".zshrc"
 )
 
 # Folder to back up files to if they exist

@@ -10,7 +10,6 @@ PACKAGES=(
     zsh # Zsh
     curl # Curl utility
     wget # Wget utility
-    emacs-nox # Emacs without X windows
     gnome-tweak-tool # For tweaking stuff
     unity-tweak-tool # For tweaking stuff
     google-chrome-stable # Google Chrome
@@ -51,9 +50,3 @@ install_fzf() {
     ~/.fzf/install
 }
 
-# Install emacs plugins
-# https://github.com/emacs-helm/helm
-install_emacs_plugins() {
-    git submodule init
-    cd .emacs.d/plugins/helm && make
-}
