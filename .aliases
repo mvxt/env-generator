@@ -14,7 +14,7 @@
     alias shutdown='sudo shutdown -h now'
     alias android='studio.sh'
     alias rep='watch -n1'
-    alias r='rmtrash'
+    alias r='trash'
     alias py='python3'
     alias f='v `fzf -i`'
     alias diff='diff -byW $(( $(tput cols) - 2 ))'

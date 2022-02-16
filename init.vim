@@ -163,7 +163,9 @@ colorscheme onedark
 " Backspace behaves like other programs
 set backspace=indent,eol,start
 
-" =====================================
+" ========================
+"  KEY MAPPINGS
+" ========================
 " key map
 " Understand mapping modes:
 " http://stackoverflow.com/questions/3776117/what-is-the-difference-between-the-remap-noremap-nnoremap-and-vnoremap-mapping#answer-3776182
@@ -206,6 +208,9 @@ nnoremap <F5> :let _s=@/<Bar>:%s/\s\+$//e<Bar>:let @/=_s<Bar><CR>
 " "
 " http://stackoverflow.com/questions/7722177/how-do-i-map-ctrl-x-ctrl-o-to-ctrl-space-in-terminal-vim#answer-24550772
 nnoremap <silent> <Space> :NERDTreeToggle<CR>
+
+" Markdown preview
+nmap <silent> <leader>m :MarkdownPreview<CR>
 
 " toggle tagbar
 nnoremap <silent> <leader>tb :TagbarToggle<CR>
