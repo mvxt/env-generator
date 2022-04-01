@@ -60,6 +60,6 @@ install_app_store() {
 install_clt
 install_brew
 install_nvim_init
-brew bundle # Uses homebrew/cask to install stuff in Brewfile
+brew bundle -v # Uses homebrew/cask to install stuff in Brewfile
 install_app_store
 
