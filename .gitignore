@@ -7,3 +7,6 @@ backup/
 
 # Emacs directory
 .emacs.d
+
+# Lockfile
+Brewfile.lock.json

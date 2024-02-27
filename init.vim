@@ -74,11 +74,6 @@ Plug 'Xuyuanp/nerdtree-git-plugin'
 " https://github.com/xolox/vim-misc
 Plug 'xolox/vim-misc'
 
-" Snippets
-Plug 'MarcWeber/vim-addon-mw-utils'
-Plug 'tomtom/tlib_vim'
-Plug 'garbas/vim-snipmate'
-
 " Tagbar
 " https://github.com/majutsushi/tagbar
 Plug 'majutsushi/tagbar'

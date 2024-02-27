@@ -86,5 +86,6 @@ fi
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
-export FZF_DEFAULT_COMMAND='rg --files'
 
+# FZF Overrides to ignore files
+export FZF_DEFAULT_COMMAND='rg --files --follow --no-ignore-vcs --hidden -g "!{node_modules/*,.git/*,dist/*}"'

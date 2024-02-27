@@ -46,3 +46,6 @@ for f in "${PROFILES[@]}"; do
     echo "source $(pwd)/.aliases" >> ~/$(basename $f)
 done
 
+# Move vim/nvim files
+mkdir -p ~/.config/nvim
+ln -s ~/env-generator/init.vim ~/.config/nvim/init.vim
